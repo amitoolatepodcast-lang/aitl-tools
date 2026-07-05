@@ -25,4 +25,4 @@ Just a free tool to get started.
 ---
 
 ## 📜 License
-This project is licensed under the [MIT License](LICENSE).
+© 2026 Am I Too Late? Podcast. All rights reserved. This code may not be copied, redistributed, or reused without permission.
