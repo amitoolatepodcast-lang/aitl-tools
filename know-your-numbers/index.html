@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Know Your Numbers Worksheet | Am I Too Late?</title>
+<meta name="description" content="Get your free Google Sheet or Excel worksheet to track your income, expenses, net worth and more — made for late starters who want a clearer picture of their money.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://calculator.amitoolatepodcast.com/know-your-numbers/">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Know Your Numbers Worksheet | Am I Too Late?">
+<meta property="og:description" content="A free worksheet to track your income, spending and net worth — one small step to feel more in control of your money.">
+<meta property="og:url" content="https://calculator.amitoolatepodcast.com/know-your-numbers/">
+<meta property="og:image" content="https://storage.mlcdn.com/account_image/1675903/wCO4o6ImKQ5myPtiHXg1o8SMmADFrBoSs5WCm5Hu.gif">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Know Your Numbers Worksheet | Am I Too Late?">
+<meta name="twitter:description" content="A free worksheet to track your income, spending and net worth — one small step to feel more in control of your money.">
+<meta name="twitter:image" content="https://storage.mlcdn.com/account_image/1675903/wCO4o6ImKQ5myPtiHXg1o8SMmADFrBoSs5WCm5Hu.gif">
+
+<style>
+  :root{
+    --teal:#0d7d75;
+    --teal-dark:#095e58;
+    --teal-light:#e6f4f3;
+    --ink:#1b2b2a;
+    --muted:#5b6b6a;
+    --bg:#fbfaf7;
+    --card:#ffffff;
+    --line:#e3e0d9;
+    --error:#b3261e;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    font-size:17px;
+    line-height:1.6;
+  }
+  .wrap{max-width:640px;margin:0 auto;padding:24px 20px 64px}
+  .brand{text-align:center;margin-bottom:8px}
+  .brand img{max-width:190px;height:auto;border-radius:10px}
+  .kicker{
+    text-align:center;font-size:13px;letter-spacing:.09em;text-transform:uppercase;
+    color:var(--teal);font-weight:700;margin:14px 0 6px
+  }
+  h1{font-size:30px;line-height:1.25;margin:0 0 12px;text-align:center;letter-spacing:-.01em}
+  .sub{text-align:center;color:var(--muted);margin:0 0 28px;font-size:18px}
+  .hero{
+    display:block;width:100%;height:auto;border-radius:14px;margin:0 0 28px;
+    border:1px solid var(--line)
+  }
+  .card{
+    background:var(--card);border:1px solid var(--line);border-radius:16px;
+    padding:26px 22px;margin:0 0 24px;
+    box-shadow:0 1px 2px rgba(0,0,0,.03)
+  }
+  h2{font-size:20px;margin:0 0 14px}
+  ul.checks{list-style:none;padding:0;margin:0}
+  ul.checks li{position:relative;padding-left:30px;margin-bottom:12px}
+  ul.checks li::before{
+    content:"✓";position:absolute;left:0;top:0;
+    color:var(--teal);font-weight:700
+  }
+  label{display:block;font-weight:600;font-size:15px;margin:0 0 6px}
+  .opt{font-weight:400;color:var(--muted)}
+  input[type=text],input[type=email],input[type=number]{
+    width:100%;padding:13px 14px;font-size:16px;font-family:inherit;
+    border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink)
+  }
+  input:focus{outline:2px solid var(--teal);outline-offset:1px;border-color:var(--teal)}
+  .field{margin-bottom:18px}
+  .consent{display:flex;gap:11px;align-items:flex-start;margin:22px 0 6px}
+  .consent input{margin-top:5px;width:19px;height:19px;flex:0 0 auto;accent-color:var(--teal)}
+  .consent label{font-weight:400;font-size:15px;margin:0}
+  button{
+    width:100%;margin-top:20px;padding:16px 20px;font-size:17px;font-weight:700;
+    font-family:inherit;color:#fff;background:var(--teal);border:0;border-radius:10px;cursor:pointer
+  }
+  button:hover:not(:disabled){background:var(--teal-dark)}
+  button:disabled{opacity:.6;cursor:not-allowed}
+  .privacy{font-size:13.5px;color:var(--muted);margin:16px 0 0;text-align:center}
+  .err{
+    display:none;background:#fdeceb;border:1px solid #f4c7c4;color:var(--error);
+    border-radius:10px;padding:12px 14px;font-size:15px;margin-bottom:18px
+  }
+  .err.show{display:block}
+  #success{display:none;text-align:center}
+  #success.show{display:block}
+  #success .tick{font-size:52px;line-height:1;margin-bottom:10px}
+  #success h2{font-size:24px}
+  .note{background:var(--teal-light);border-radius:10px;padding:14px 16px;font-size:15px;margin-top:20px}
+  footer{text-align:center;font-size:14px;color:var(--muted);margin-top:36px}
+  footer a{color:var(--teal)}
+  @media (max-width:480px){
+    h1{font-size:25px}
+    .wrap{padding:18px 16px 52px}
+    .card{padding:22px 18px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="brand">
+    <img src="https://storage.mlcdn.com/account_image/1675903/wCO4o6ImKQ5myPtiHXg1o8SMmADFrBoSs5WCm5Hu.gif" alt="Am I Too Late? Podcast">
+  </div>
+
+  <p class="kicker">Free worksheet</p>
+  <h1>Know Your Numbers</h1>
+  <p class="sub">Get a clearer picture of your finances — five key numbers, all in one place.</p>
+
+  <img class="hero" src="https://storage.mlcdn.com/account_image/1675903/ckw1ow5Tji2KlEzd6DBfwJR5xzOeWU3MrIQ190k9.png" alt="Preview of the Know Your Numbers worksheet">
+
+  <div class="card">
+    <p style="margin-top:0">This free worksheet pulls your five key numbers into one place. No fancy formulas, no complicated budgeting rules. Available as both a Google Sheet and an Excel file — whichever works best for you.</p>
+
+    <h2>What you'll get</h2>
+    <ul class="checks">
+      <li>The <strong>Know Your Numbers – Snapshot &amp; Trackers</strong> worksheet (Google Sheets &amp; Excel)</li>
+      <li>Prompts to note your <strong>income, expenses, pensions, savings and debts</strong></li>
+      <li>A <strong>net worth snapshot</strong> to give you the full picture</li>
+      <li>A <strong>monthly income &amp; expenses tracker</strong> to see how money flows in and out</li>
+      <li>A <strong>monthly net worth tracker</strong> so you can watch your progress over time</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div id="formPane">
+      <h2 style="margin-bottom:6px">Pop in your email and I'll send the link straight over</h2>
+      <p style="color:var(--muted);font-size:15px;margin:0 0 22px">You'll also get podcast updates — no spam, unsubscribe anytime.</p>
+
+      <div class="err" id="err" role="alert"></div>
+
+      <form id="signup" novalidate>
+        <div class="field">
+          <label for="name">Your name</label>
+          <input type="text" id="name" name="name" autocomplete="given-name" required>
+        </div>
+
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" autocomplete="email" required>
+        </div>
+
+        <div class="field">
+          <label for="age">Age <span class="opt">(optional)</span></label>
+          <input type="number" id="age" name="age" min="1" max="120" inputmode="numeric">
+        </div>
+
+        <div class="field">
+          <label for="from">Where are you from? <span class="opt">(optional)</span></label>
+          <input type="text" id="from" name="from">
+        </div>
+
+        <div class="field">
+          <label for="live">Where do you live? <span class="opt">(optional)</span></label>
+          <input type="text" id="live" name="live">
+        </div>
+
+        <div class="field">
+          <label for="retire">Where do you want to retire? <span class="opt">(optional)</span></label>
+          <input type="text" id="retire" name="retire">
+        </div>
+
+        <div class="consent">
+          <input type="checkbox" id="consent" required>
+          <label for="consent">I agree to receive emails from “Am I Too Late?”</label>
+        </div>
+
+        <button type="submit" id="btn">Send me the worksheet</button>
+      </form>
+
+      <p class="privacy">We respect your privacy. Your information will only be used to send you the worksheet and occasional updates from the podcast. You can unsubscribe at any time.</p>
+    </div>
+
+    <div id="success">
+      <div class="tick">📩</div>
+      <h2>The worksheet is on its way!</h2>
+      <p style="color:var(--muted)">It might take a few minutes to arrive.</p>
+      <div class="note">Haven't had it within 5 minutes? Please check your spam or promotions folder. ⚠️</div>
+    </div>
+  </div>
+
+  <footer>
+    <p><a href="https://linktr.ee/amitoolatepodcast">🎧 Listen to the Am I Too Late? podcast</a></p>
+  </footer>
+
+</div>
+
+<iframe name="ml_fallback" id="ml_fallback" style="display:none" title="hidden"></iframe>
+
+<script>
+(function(){
+  // MailerLite embedded form endpoint
+  var ACCOUNT_ID = "1675903";
+  var FORM_ID    = "194069489412736399"; // Know Your Numbers - Embedded (own site)
+  var ENDPOINT   = "https://assets.mailerlite.com/jsonp/" + ACCOUNT_ID + "/forms/" + FORM_ID + "/subscribe";
+
+  var form    = document.getElementById("signup");
+  var btn     = document.getElementById("btn");
+  var errBox  = document.getElementById("err");
+  var pane    = document.getElementById("formPane");
+  var success = document.getElementById("success");
+
+  function showError(msg){
+    errBox.textContent = msg;
+    errBox.classList.add("show");
+    btn.disabled = false;
+    btn.textContent = "Send me the worksheet";
+  }
+
+  function showSuccess(){
+    pane.style.display = "none";
+    success.classList.add("show");
+    window.scrollTo({top:0, behavior:"smooth"});
+  }
+
+  function buildData(){
+    var fd = new FormData();
+    fd.append("fields[email]", document.getElementById("email").value.trim());
+    fd.append("fields[name]",  document.getElementById("name").value.trim());
+
+    var age = document.getElementById("age").value.trim();
+    if(age) fd.append("fields[age_optional]", age);
+
+    var from = document.getElementById("from").value.trim();
+    if(from) fd.append("fields[where_are_you_from_optional]", from);
+
+    var live = document.getElementById("live").value.trim();
+    if(live) fd.append("fields[where_do_you_live_optional]", live);
+
+    var retire = document.getElementById("retire").value.trim();
+    if(retire) fd.append("fields[where_do_you_want_to_retire_optional]", retire);
+
+    // Audit trail / attribution
+    fd.append("fields[optinsource]", window.location.hostname + window.location.pathname);
+    fd.append("fields[signuptype]", "Know Your Numbers");
+    fd.append("fields[leadtag]", "know-your-numbers");
+
+    fd.append("ml-submit", "1");
+    fd.append("anticsrf", "true");
+    return fd;
+  }
+
+  // Fallback: classic form POST into a hidden iframe (immune to CORS issues)
+  function iframeFallback(fd){
+    var f = document.createElement("form");
+    f.method = "POST";
+    f.action = ENDPOINT;
+    f.target = "ml_fallback";
+    f.style.display = "none";
+    fd.forEach(function(value, key){
+      var i = document.createElement("input");
+      i.type = "hidden";
+      i.name = key;
+      i.value = value;
+      f.appendChild(i);
+    });
+    document.body.appendChild(f);
+    f.submit();
+    setTimeout(showSuccess, 600);
+  }
+
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    errBox.classList.remove("show");
+
+    var email   = document.getElementById("email").value.trim();
+    var name    = document.getElementById("name").value.trim();
+    var consent = document.getElementById("consent").checked;
+
+    if(!name){ return showError("Please enter your name."); }
+    if(!email || email.indexOf("@") < 1 || email.indexOf(".") < 0){
+      return showError("Please enter a valid email address.");
+    }
+    if(!consent){ return showError("Please tick the box to confirm you're happy to receive emails."); }
+
+    btn.disabled = true;
+    btn.textContent = "Sending…";
+
+    var fd = buildData();
+
+    fetch(ENDPOINT, { method:"POST", body:fd })
+      .then(function(res){ return res.json().catch(function(){ return {success:true}; }); })
+      .then(function(data){
+        if(data && data.success === false){
+          var msg = "Something went wrong, please try again.";
+          if(data.errors){
+            try{
+              var first = Object.values(data.errors)[0];
+              if(Array.isArray(first) && first[0]) msg = first[0];
+            }catch(_){}
+          }
+          return showError(msg);
+        }
+        showSuccess();
+      })
+      .catch(function(){
+        // Network/CORS blocked — fall back to iframe POST
+        iframeFallback(fd);
+      });
+  });
+})();
+</script>
+</body>
+</html>
