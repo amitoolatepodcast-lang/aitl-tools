@@ -1808,6 +1808,8 @@
                 calculateWorkingModeTotals(totals);
             }
             
+            updateRetirementTarget(totals, mode);
+            
             return totals;
         }
 
@@ -1848,6 +1850,48 @@
             document.getElementById('retirement-28_6').textContent = formatNumber(retirementBase * 28.6);
             
             updatePieChart(totals, 'working');
+        }
+
+        function updateRetirementTarget(totals, mode) {
+            function fmtGBP(n){ return '£' + (Math.round(n*100)/100).toLocaleString('en-GB',{minimumFractionDigits:2, maximumFractionDigits:2}); }
+            var rNeeds = totals.retirementNeeds || 0, rWants = totals.retirementWants || 0, rIncome = totals.retirementIncome || 0;
+            var hasPlan = (rNeeds + rWants) > 0;
+            var monthlyBasis = hasPlan ? (rNeeds + rWants) : ((totals.needs || 0) + (totals.wants || 0));
+            var annualBasis = monthlyBasis * 12;
+            var annualIncome = hasPlan ? rIncome * 12 : 0;
+            var annualGap = Math.max(0, annualBasis - annualIncome);
+
+            var b = document.getElementById('retirement-base'); if (b) b.textContent = fmtGBP(annualBasis);
+            var t25 = document.getElementById('retirement-25'); if (t25) t25.textContent = fmtGBP(annualBasis * 25);
+            var t286 = document.getElementById('retirement-28_6'); if (t286) t286.textContent = fmtGBP(annualBasis * 28.6);
+
+            var sec = document.getElementById('retirement-target-section');
+            if (!sec) return;
+            var box = document.getElementById('net-target-box');
+            if (!box) {
+                box = document.createElement('div');
+                box.id = 'net-target-box';
+                box.style.cssText = 'margin-top:18px;padding:14px 16px;border-radius:10px;background:#eef7f6;border:1px solid #cfe6e3;font-size:15px;line-height:1.55';
+                sec.appendChild(box);
+            }
+            var html = '<div style="margin-bottom:8px">' + (hasPlan
+                ? 'Based on the retirement costs you entered in <strong>Retirement</strong> mode.'
+                : 'Based on your <strong>current</strong> spending, including any mortgage. Switch to <strong>Retirement</strong> mode to enter what you expect to spend then.') + '</div>';
+
+            if (annualIncome > 0 && annualGap > 0) {
+                html += '<div>After <strong>' + fmtGBP(annualIncome) + '</strong> a year of retirement income you entered, your own savings need to cover <strong>' + fmtGBP(annualGap) + '</strong> a year:</div>'
+                     + '<div style="display:flex;gap:20px;flex-wrap:wrap;margin-top:10px">'
+                     + '<div><div style="font-size:13px;opacity:.75">25× (4% withdrawal)</div><div style="font-size:19px;font-weight:700">' + fmtGBP(annualGap * 25) + '</div></div>'
+                     + '<div><div style="font-size:13px;opacity:.75">28.6× (3.5% withdrawal)</div><div style="font-size:19px;font-weight:700">' + fmtGBP(annualGap * 28.6) + '</div></div>'
+                     + '</div>'
+                     + '<div style="font-size:13px;opacity:.8;margin-top:10px">This assumes the retirement income you entered arrives in full. State Pension rules and ages can change, so it is worth checking how the figure looks without it.</div>';
+            } else if (annualIncome > 0 && annualGap === 0) {
+                html += '<div>The retirement income you entered (<strong>' + fmtGBP(annualIncome) + '</strong> a year) already covers these costs, so on these numbers your own savings would need to cover nothing.</div>'
+                     + '<div style="font-size:13px;opacity:.8;margin-top:8px">Treat that with caution rather than relief. It assumes that income arrives in full and that your costs do not rise — and it leaves no margin for care costs, helping family, or simply wanting more than the basics.</div>';
+            } else {
+                html += '<div style="opacity:.85">Add your expected retirement income — State Pension, a defined benefit pension, rental income — in <strong>Retirement</strong> mode to see how much your own savings actually need to cover.</div>';
+            }
+            box.innerHTML = html;
         }
 
         function calculateRetirementModeTotals(totals) {
