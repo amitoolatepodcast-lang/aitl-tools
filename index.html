@@ -1865,13 +1865,18 @@
             var t25 = document.getElementById('retirement-25'); if (t25) t25.textContent = fmtGBP(annualBasis * 25);
             var t286 = document.getElementById('retirement-28_6'); if (t286) t286.textContent = fmtGBP(annualBasis * 28.6);
 
-            var sec = document.getElementById('retirement-target-section');
+            var sec = (mode === 'retirement')
+                ? document.getElementById('retirement-gap-section')
+                : document.getElementById('retirement-target-section');
+            if (!sec) sec = document.getElementById('retirement-target-section');
             if (!sec) return;
             var box = document.getElementById('net-target-box');
             if (!box) {
                 box = document.createElement('div');
                 box.id = 'net-target-box';
                 box.style.cssText = 'margin-top:18px;padding:14px 16px;border-radius:10px;background:#eef7f6;border:1px solid #cfe6e3;font-size:15px;line-height:1.55';
+                sec.appendChild(box);
+            } else if (box.parentElement !== sec) {
                 sec.appendChild(box);
             }
             var html = '<div style="margin-bottom:8px">' + (hasPlan
