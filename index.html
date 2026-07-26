@@ -1374,9 +1374,10 @@
         
         <div class="button-group">
             <button class="btn" id="validate">✅ Validate</button>
-            <button class="btn" id="reset">🔄 Reset</button>
+            <button class="btn" id="reset">🔄 Reset to example figures</button>
+            <button class="btn" id="clear-figures">🧹 Clear my figures</button>
             <button class="btn btn-secondary" id="save">💾 Save</button>
-            <button class="btn btn-danger" id="clear-scenarios">🗑️ Clear All</button>
+            <button class="btn btn-danger" id="clear-scenarios">🗑️ Delete saved scenarios</button>
             <button class="btn" id="compare">📊 Compare</button>
         </div>
         
@@ -2313,6 +2314,18 @@
             calculateTotals();
         }
 
+        function clearCurrentFigures() {
+            if (!confirm('Clear every figure you have entered in ' + state.currentMode + ' mode? This empties the rows so you can start from scratch. Your saved scenarios are not affected.')) return;
+
+            Object.keys(state.data[state.currentMode]).forEach(function (cat) {
+                if (Array.isArray(state.data[state.currentMode][cat])) {
+                    state.data[state.currentMode][cat] = [];
+                }
+            });
+            renderAllRows();
+            calculateTotals();
+        }
+
         function clearScenarios() {
             if (!confirm('Delete ALL saved scenarios?')) return;
             
@@ -2392,6 +2405,7 @@
             document.getElementById('validate').addEventListener('click', validateInputs);
             document.getElementById('reset').addEventListener('click', resetCalculator);
             document.getElementById('save').addEventListener('click', saveScenario);
+            document.getElementById('clear-figures').addEventListener('click', clearCurrentFigures);
             document.getElementById('clear-scenarios').addEventListener('click', clearScenarios);
             document.getElementById('compare').addEventListener('click', compareScenarios);
             
