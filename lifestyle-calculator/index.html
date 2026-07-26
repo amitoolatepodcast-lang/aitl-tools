@@ -125,6 +125,68 @@
   </div>
 
   <div class="card">
+    <style>
+      .preview-sub{color:var(--muted);font-size:15px;margin:0 0 22px}
+      .preview-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+      .donut{width:100%;max-width:200px;display:block;margin:0 auto}
+      .donut-amount{font-family:inherit;font-size:26px;font-weight:700;fill:var(--ink)}
+      .donut-label{font-family:inherit;font-size:12px;fill:var(--muted)}
+      .legend{list-style:none;padding:0;margin:18px 0 0;font-size:14.5px}
+      .legend li{display:flex;align-items:center;gap:9px;margin-bottom:8px}
+      .legend .dot{width:11px;height:11px;border-radius:50%;flex:0 0 auto}
+      .legend strong{margin-left:auto}
+      .costs .item{padding:10px 0;border-bottom:1px solid var(--line)}
+      .costs .line{display:flex;justify-content:space-between;font-size:15.5px;gap:10px}
+      .costs .annual{font-size:13px;color:var(--muted);margin-top:2px}
+      .costs .total{display:flex;justify-content:space-between;font-size:15.5px;padding:13px 0 0;margin-top:6px;border-top:2px solid var(--teal)}
+      .costs .rate{display:flex;justify-content:space-between;background:var(--teal-light);border-radius:9px;padding:11px 13px;margin-top:12px;font-size:15.5px}
+      .costs .rate strong{color:var(--teal-dark)}
+      .preview-note{font-size:13px;color:var(--muted);margin:22px 0 0;line-height:1.55}
+      @media (max-width:560px){.preview-grid{grid-template-columns:1fr;gap:22px}}
+    </style>
+
+    <h2 style="margin-bottom:4px">What you&rsquo;ll see</h2>
+    <p class="preview-sub">A worked example &mdash; a two-adult UK household on median income, with a mortgage.</p>
+
+    <div class="preview-grid">
+      <div>
+        <svg class="donut" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Income allocation: essential needs 77.6 percent, lifestyle wants 14.4 percent, savings 8 percent">
+          <circle cx="100" cy="100" r="70" fill="none" stroke="#eceff3" stroke-width="30"/>
+          <circle cx="100" cy="100" r="70" fill="none" stroke="#4cc76a" stroke-width="30" stroke-dasharray="341.3 439.8" transform="rotate(-90 100 100)"/>
+          <circle cx="100" cy="100" r="70" fill="none" stroke="#6f9df7" stroke-width="30" stroke-dasharray="63.3 439.8" stroke-dashoffset="-341.3" transform="rotate(-90 100 100)"/>
+          <circle cx="100" cy="100" r="70" fill="none" stroke="#8b6ce0" stroke-width="30" stroke-dasharray="35.2 439.8" stroke-dashoffset="-404.6" transform="rotate(-90 100 100)"/>
+          <text class="donut-amount" x="100" y="98" text-anchor="middle">&pound;3,116</text>
+          <text class="donut-label" x="100" y="118" text-anchor="middle">a month</text>
+        </svg>
+        <ul class="legend">
+          <li><span class="dot" style="background:#4cc76a"></span>Essential needs <strong>77.6%</strong></li>
+          <li><span class="dot" style="background:#6f9df7"></span>Lifestyle wants <strong>14.4%</strong></li>
+          <li><span class="dot" style="background:#8b6ce0"></span>Savings <strong>8.0%</strong></li>
+        </ul>
+      </div>
+
+      <div class="costs">
+        <div class="item">
+          <div class="line"><span>Essential needs</span><strong>&pound;2,417</strong></div>
+          <div class="annual">&pound;29,004 a year</div>
+        </div>
+        <div class="item">
+          <div class="line"><span>Lifestyle wants</span><strong>&pound;450</strong></div>
+          <div class="annual">&pound;5,400 a year</div>
+        </div>
+        <div class="item">
+          <div class="line"><span>Savings &amp; investing</span><strong>&pound;249</strong></div>
+          <div class="annual">&pound;2,988 a year</div>
+        </div>
+        <div class="total"><span>Monthly take-home</span><strong>&pound;3,116</strong></div>
+        <div class="rate"><span>Savings rate</span><strong>8.0%</strong></div>
+      </div>
+    </div>
+
+    <p class="preview-note">Illustrative example, not a benchmark. Built from ONS median household disposable income, average UK rent and mortgage costs, and the April 2026 Ofgem price cap. Your own numbers will look different &mdash; which is rather the point.</p>
+  </div>
+
+  <div class="card">
     <div id="formPane">
       <h2 style="margin-bottom:6px">Pop in your email and I'll send the link straight over 📧</h2>
       <p style="color:var(--muted);font-size:15px;margin:0 0 22px">You'll also get podcast updates — no spam, unsubscribe anytime.</p>
