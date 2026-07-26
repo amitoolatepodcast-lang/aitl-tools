@@ -1096,6 +1096,7 @@
                 <li><strong>Retirement</strong> - Design your retirement with separate income/expenses</li>
             </ol>
             <p style="margin-top:10px;">👫 <strong>Planning as a couple?</strong> There's no separate "couple mode" — just add a row for each of you under every category (e.g. "My Salary" and "Partner's Salary", or "My State Pension" and "Partner's State Pension" in Retirement mode). Everything adds up together automatically.</p>
+            <p style="margin-top:10px;padding:10px 12px;background:#eef7f6;border-radius:8px;">✏️ <strong>Pre-filled with UK median figures</strong> so you can see how it works — replace them with your own. They are an illustration, not a target.</p>
         </div>
         
         <!-- Working Mode Sections (Current & Aspirational) -->
@@ -1575,10 +1576,23 @@
             currentMode: 'current',
             data: {
                 current: {
-                    income: [{name: 'Salary', amount: 3000, frequency: 'monthly'}],
-                    needs: [{name: 'Rent', amount: 1200, frequency: 'monthly'}],
-                    wants: [{name: 'Entertainment', amount: 200, frequency: 'monthly'}],
-                    savings: [],
+                    income: [{name: 'Household take-home', amount: 3116, frequency: 'monthly'}],
+                    needs: [
+                        {name: 'Mortgage', amount: 1250, frequency: 'monthly'},
+                        {name: 'Groceries', amount: 433, frequency: 'monthly'},
+                        {name: 'Transport', amount: 300, frequency: 'monthly'},
+                        {name: 'Council tax', amount: 199, frequency: 'monthly'},
+                        {name: 'Energy', amount: 137, frequency: 'monthly'},
+                        {name: 'Water', amount: 53, frequency: 'monthly'},
+                        {name: 'Broadband & mobiles', amount: 45, frequency: 'monthly'}
+                    ],
+                    wants: [
+                        {name: 'Eating out & takeaways', amount: 180, frequency: 'monthly'},
+                        {name: 'Recreation & hobbies', amount: 150, frequency: 'monthly'},
+                        {name: 'Clothing', amount: 70, frequency: 'monthly'},
+                        {name: 'Subscriptions & TV licence', amount: 50, frequency: 'monthly'}
+                    ],
+                    savings: [{name: 'Savings & investing', amount: 249, frequency: 'monthly'}],
                     pension: [],
                     workplacePension: [],
                     dbPension: []
@@ -2248,10 +2262,23 @@
             
             const defaults = {
                 current: {
-                    income: [{name: 'Salary', amount: 3000, frequency: 'monthly'}],
-                    needs: [{name: 'Rent', amount: 1200, frequency: 'monthly'}],
-                    wants: [{name: 'Entertainment', amount: 200, frequency: 'monthly'}],
-                    savings: [],
+                    income: [{name: 'Household take-home', amount: 3116, frequency: 'monthly'}],
+                    needs: [
+                        {name: 'Mortgage', amount: 1250, frequency: 'monthly'},
+                        {name: 'Groceries', amount: 433, frequency: 'monthly'},
+                        {name: 'Transport', amount: 300, frequency: 'monthly'},
+                        {name: 'Council tax', amount: 199, frequency: 'monthly'},
+                        {name: 'Energy', amount: 137, frequency: 'monthly'},
+                        {name: 'Water', amount: 53, frequency: 'monthly'},
+                        {name: 'Broadband & mobiles', amount: 45, frequency: 'monthly'}
+                    ],
+                    wants: [
+                        {name: 'Eating out & takeaways', amount: 180, frequency: 'monthly'},
+                        {name: 'Recreation & hobbies', amount: 150, frequency: 'monthly'},
+                        {name: 'Clothing', amount: 70, frequency: 'monthly'},
+                        {name: 'Subscriptions & TV licence', amount: 50, frequency: 'monthly'}
+                    ],
+                    savings: [{name: 'Savings & investing', amount: 249, frequency: 'monthly'}],
                     pension: [],
                     workplacePension: [],
                     dbPension: []
