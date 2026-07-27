@@ -1063,6 +1063,11 @@
                 flex-direction: column;
             }
         }
+        body.aspirational-mode #intro-full,
+        body.retirement-mode #intro-full,
+        body.aspirational-mode #prefill-note,
+        body.retirement-mode #prefill-note { display: none; }
+        body.current-mode #intro-mode { display: none; }
     </style>
 </head>
 <body class="current-mode">
@@ -1088,6 +1093,7 @@
         </div>
         
         <div class="intro-text">
+            <div id="intro-full">
             <p><strong>Plan your financial future across three scenarios!</strong> This calculator runs entirely in your browser - your data never leaves your device.</p>
             <p>Use the three modes:</p>
             <ol>
@@ -1095,8 +1101,10 @@
                 <li><strong>Aspirational</strong> - Your ideal lifestyle while working</li>
                 <li><strong>Retirement</strong> - Design your retirement with separate income/expenses</li>
             </ol>
+            </div>
+            <p id="intro-mode"></p>
             <p style="margin-top:10px;">👫 <strong>Planning as a couple?</strong> There's no separate "couple mode" — just add a row for each of you under every category (e.g. "My Salary" and "Partner's Salary", or "My State Pension" and "Partner's State Pension" in Retirement mode). Everything adds up together automatically.</p>
-            <p style="margin-top:10px;padding:10px 12px;background:#eef7f6;border-radius:8px;">✏️ <strong>Pre-filled with UK median figures</strong> so you can see how it works — replace them with your own. They are an illustration, not a target.</p>
+            <p id="prefill-note" style="margin-top:10px;padding:10px 12px;background:#eef7f6;border-radius:8px;">✏️ <strong>Pre-filled with UK median figures</strong> so you can see how it works — replace them with your own. They are an illustration, not a target.</p>
         </div>
         
         <!-- Working Mode Sections (Current & Aspirational) -->
@@ -2063,6 +2071,17 @@
                 banner.innerHTML = '✨ <strong>ASPIRATIONAL LIFESTYLE</strong> - Your dream while working';
             } else {
                 banner.innerHTML = '🌴 <strong>RETIREMENT LIFESTYLE</strong> - Your retirement plan';
+            }
+
+            var introMode = document.getElementById('intro-mode');
+            if (introMode) {
+                if (mode === 'aspirational') {
+                    introMode.innerHTML = '<strong>Aspirational</strong> is the lifestyle you would like while you are still working. Enter what it would cost — your Current figures are kept separately.';
+                } else if (mode === 'retirement') {
+                    introMode.innerHTML = '<strong>Retirement</strong> is what you expect to spend and receive once you have stopped working. Enter both sides here — your Current figures are kept separately.';
+                } else {
+                    introMode.innerHTML = '';
+                }
             }
             
             const isRetirement = mode === 'retirement';
