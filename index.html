@@ -1888,41 +1888,44 @@
             var t25 = document.getElementById('retirement-25'); if (t25) t25.textContent = fmtGBP(annualBasis * 25);
             var t286 = document.getElementById('retirement-28_6'); if (t286) t286.textContent = fmtGBP(annualBasis * 28.6);
 
-            var sec = (mode === 'retirement')
-                ? document.getElementById('retirement-gap-section')
-                : document.getElementById('retirement-target-section');
-            if (!sec) sec = document.getElementById('retirement-target-section');
+            var targetSection = document.getElementById('retirement-target-section');
+            var head = targetSection ? targetSection.querySelector('h3') : null;
+            if (head) {
+                head.textContent = (mode === 'retirement') ? 'Retirement Savings Target' : 'If your savings had to cover everything';
+            }
+
+            var sec = (mode === 'retirement') ? document.getElementById('retirement-gap-section') : targetSection;
+            if (!sec) sec = targetSection;
             if (!sec) return;
+
             var box = document.getElementById('net-target-box');
             if (!box) {
                 box = document.createElement('div');
                 box.id = 'net-target-box';
-                box.style.cssText = 'margin-top:18px;padding:14px 16px;border-radius:10px;background:#eef7f6;border:1px solid #cfe6e3;font-size:15px;line-height:1.55';
-                sec.appendChild(box);
-            } else if (box.parentElement !== sec) {
-                sec.appendChild(box);
-            }
-            var html = '';
-            if (mode !== 'retirement') {
-                html += '<div style="margin-bottom:8px">' + (hasPlan
-                    ? 'Based on the retirement costs you entered in <strong>Retirement</strong> mode.'
-                    : 'Based on your <strong>current</strong> spending, including any mortgage. Switch to <strong>Retirement</strong> mode to enter what you expect to spend then.') + '</div>';
+                box.style.cssText = 'margin:12px 0;padding:14px 16px;border-radius:10px;background:#eef7f6;border:1px solid #cfe6e3;font-size:15px;line-height:1.55';
             }
 
-            if (annualIncome > 0 && annualGap > 0) {
-                html += '<div>After <strong>' + fmtGBP(annualIncome) + '</strong> a year of retirement income you entered, your own savings need to cover <strong>' + fmtGBP(annualGap) + '</strong> a year:</div>'
-                     + '<div style="display:flex;gap:20px;flex-wrap:wrap;margin-top:10px">'
-                     + '<div><div style="font-size:13px;opacity:.75">25× (4% withdrawal)</div><div style="font-size:19px;font-weight:700">' + fmtGBP(annualGap * 25) + '</div></div>'
-                     + '<div><div style="font-size:13px;opacity:.75">28.6× (3.5% withdrawal)</div><div style="font-size:19px;font-weight:700">' + fmtGBP(annualGap * 28.6) + '</div></div>'
-                     + '</div>'
-                     + '<div style="font-size:13px;opacity:.8;margin-top:10px">This assumes the retirement income you entered arrives in full. State Pension rules and ages can change, so it is worth checking how the figure looks without it.</div>';
-            } else if (annualIncome > 0 && annualGap === 0) {
-                if (mode !== 'retirement') {
-                    html += '<div>The retirement income you entered (<strong>' + fmtGBP(annualIncome) + '</strong> a year) already covers these costs, so on these numbers your own savings would need to cover nothing.</div>';
+            var html = '';
+            if (mode !== 'retirement') {
+                html += '<div style="margin-bottom:8px"><strong>This is a worst-case figure.</strong> It is 25× your current spending, including any mortgage, and it counts no State Pension at all.</div>';
+                html += '<div>Most people need far less than this. Switch to <strong>Retirement</strong> mode for the lifestyle tiers and a figure based on what you expect to spend once you have stopped working.</div>';
+                if (head && head.nextSibling !== box) {
+                    sec.insertBefore(box, head.nextSibling);
                 }
-                html += '<div style="font-size:13px;opacity:.8">Treat that with caution rather than relief. It assumes the income you entered arrives in full and that your costs do not rise — and it leaves no margin for care costs, helping family, or simply wanting more than the basics.</div>';
             } else {
-                html += '<div style="opacity:.85">Add your expected retirement income — State Pension, a defined benefit pension, rental income — in <strong>Retirement</strong> mode to see how much your own savings actually need to cover.</div>';
+                if (annualIncome > 0 && annualGap > 0) {
+                    html += '<div>After <strong>' + fmtGBP(annualIncome) + '</strong> a year of retirement income you entered, your own savings need to cover <strong>' + fmtGBP(annualGap) + '</strong> a year:</div>'
+                         + '<div style="display:flex;gap:20px;flex-wrap:wrap;margin-top:10px">'
+                         + '<div><div style="font-size:13px;opacity:.75">25× (4% withdrawal)</div><div style="font-size:19px;font-weight:700">' + fmtGBP(annualGap * 25) + '</div></div>'
+                         + '<div><div style="font-size:13px;opacity:.75">28.6× (3.5% withdrawal)</div><div style="font-size:19px;font-weight:700">' + fmtGBP(annualGap * 28.6) + '</div></div>'
+                         + '</div>'
+                         + '<div style="font-size:13px;opacity:.8;margin-top:10px">This assumes the retirement income you entered arrives in full. State Pension rules and ages can change, so it is worth checking how the figure looks without it.</div>';
+                } else if (annualIncome > 0 && annualGap === 0) {
+                    html += '<div style="font-size:13px;opacity:.8">Treat that with caution rather than relief. It assumes the income you entered arrives in full and that your costs do not rise — and it leaves no margin for care costs, helping family, or simply wanting more than the basics.</div>';
+                } else {
+                    html += '<div style="opacity:.85">Add your expected retirement income — State Pension, a defined benefit pension, rental income — in <strong>Retirement</strong> mode to see how much your own savings actually need to cover.</div>';
+                }
+                if (box.parentElement !== sec) sec.appendChild(box);
             }
             box.innerHTML = html;
         }
