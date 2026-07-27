@@ -1103,7 +1103,7 @@
             </ol>
             </div>
             <p id="intro-mode"></p>
-            <p style="margin-top:10px;">👫 <strong>Planning as a couple?</strong> There's no separate "couple mode" — just add a row for each of you under every category (e.g. "My Salary" and "Partner's Salary", or "My State Pension" and "Partner's State Pension" in Retirement mode). Everything adds up together automatically.</p>
+            <p id="couple-note" style="margin-top:10px;">👫 <strong>Planning as a couple?</strong> There's no separate "couple mode" — just add a row for each of you under every category (e.g. "My Salary" and "Partner's Salary"). Everything adds up together automatically.</p>
             <p id="prefill-note" style="margin-top:10px;padding:10px 12px;background:#eef7f6;border-radius:8px;">✏️ <strong>Pre-filled with UK median figures</strong> so you can see how it works — replace them with your own. They are an illustration, not a target.</p>
         </div>
         
@@ -2082,6 +2082,14 @@
                 } else {
                     introMode.innerHTML = '';
                 }
+            }
+
+            var coupleNote = document.getElementById('couple-note');
+            if (coupleNote) {
+                var examples = (mode === 'retirement')
+                    ? '"My State Pension" and "Partner\'s State Pension"'
+                    : '"My Salary" and "Partner\'s Salary"';
+                coupleNote.innerHTML = '👫 <strong>Planning as a couple?</strong> There\'s no separate "couple mode" — just add a row for each of you under every category (e.g. ' + examples + '). Everything adds up together automatically.';
             }
             
             const isRetirement = mode === 'retirement';
